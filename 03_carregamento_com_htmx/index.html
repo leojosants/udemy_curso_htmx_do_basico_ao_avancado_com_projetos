@@ -10,6 +10,7 @@
 			integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
 			crossorigin="anonymous"
 		></script>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
 		<h1>Aula 01</h1>
@@ -40,5 +41,38 @@
 		</button>
 
 		<div id="swap-content"></div>
+
+		<h2>Aula 03</h2>
+
+		<div id="swap-area">
+			<button
+				hx-get="http://localhost:3000/content"
+				hx-target="#swap-area"
+				hx-swap="afterbegin"
+			>
+				After begin
+			</button>
+			<button
+				hx-get="http://localhost:3000/content"
+				hx-target="#swap-area"
+				hx-swap="beforebegin"
+			>
+				Before begin
+			</button>
+			<button
+				hx-get="http://localhost:3000/content"
+				hx-target="#swap-area"
+				hx-swap="beforeend"
+			>
+				Before end
+			</button>
+			<button
+				hx-get="http://localhost:3000/content"
+				hx-target="#swap-area"
+				hx-swap="afterend"
+			>
+				After end
+			</button>
+		</div>
 	</body>
 </html>
