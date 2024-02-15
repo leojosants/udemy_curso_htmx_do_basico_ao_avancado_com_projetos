@@ -18,6 +18,48 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<h1>Gerenciador de tarefas</h1>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 mt-2">
+					<h1 class="text-center mb-4">Gerenciador de Tarefas</h1>
+
+					<!-- formulario -->
+					<form class="mb-4" id="todo-form">
+						<div class="form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="text"
+								placeholder="Digite a tarefa"
+								id="todo-text"
+							/>
+						</div>
+
+						<div class="form-group">
+							<select
+								class="form-control"
+								name="difficulty"
+								id="todo-difficulty"
+							>
+								<option value="Easy">Fácil</option>
+								<option value="Intermediary">Intermediária</option>
+								<option value="Difficult">Difícil</option>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">
+							Adicionar
+						</button>
+					</form>
+
+					<!-- mensagens do sistema -->
+					<div id="msg"></div>
+
+					<!-- formulario de edicao -->
+
+					<!-- lista de tarefas -->
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
