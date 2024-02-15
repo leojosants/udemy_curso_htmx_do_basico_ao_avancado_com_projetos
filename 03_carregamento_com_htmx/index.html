@@ -75,6 +75,8 @@
 			</button>
 		</div>
 
+		<h2>Aula 04</h2>
+
 		<button
 			hx-get="http://localhost:3000/outOfBound"
 			hx-target="#ignored-target"
@@ -85,5 +87,17 @@
 		<div id="notification">Notificação inicial</div>
 
 		<div id="ignored-target"></div>
+
+		<h2>Aula 05</h2>
+
+		<button
+			hx-get="http://localhost:3000/subset"
+			hx-target="#result-select"
+			hx-select="#only-this-part"
+		>
+			Enviar requisição
+		</button>
+
+		<div id="result-select"></div>
 	</body>
 </html>
