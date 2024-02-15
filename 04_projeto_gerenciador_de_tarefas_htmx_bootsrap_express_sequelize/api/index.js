@@ -119,6 +119,27 @@ app.get('/todos', async (req, res) => {
     }
 });
 
+app.delete('/todos/:id', async (req, res) => {
+    try {
+        const task = await Todo.findByPk(req.params.id);
+
+        if (task) {
+            await task.destroy();
+            res.send(`
+                <div class="alert alert-success" role="alert">
+                    Tarefa excluída com sucesso!
+                </div>
+            `);
+        }
+        else {
+            res.send('Tarefa não encontrada!');
+        }
+    }
+    catch (error) {
+        res.send('Erro ao excluir tarefa!');
+    }
+});
+
 sequelize.sync().then(() => {
     app.listen(port, () => {
         console.log(`Servidor sendo executado na porta: ${port}`);
