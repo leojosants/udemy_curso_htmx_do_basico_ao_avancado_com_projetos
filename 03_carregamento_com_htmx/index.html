@@ -99,5 +99,18 @@
 		</button>
 
 		<div id="result-select"></div>
+
+		<h2>Aula 06</h2>
+
+		<button
+			hx-get="http://localhost:3000/advancedParams"
+			hx-target="#result-params"
+			hx-vals='{"lang": "JavaScript", "user": "Leonardo"}'
+			hx-params="lang, user"
+		>
+			Enviar requisição
+		</button>
+
+		<div id="result-params"></div>
 	</body>
 </html>
