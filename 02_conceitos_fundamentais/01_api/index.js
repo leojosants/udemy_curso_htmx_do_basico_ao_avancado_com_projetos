@@ -87,9 +87,9 @@ app.get("/progress", (req, res) => {
 // Aula 9: Enviando Dados
 app.post("/submit", (req, res) => {
     // Processamento dos dados do formulário
-    const nome = req.body.nome;
+    const name = req.body.name;
     const email = req.body.email;
-    res.send(`Formulário recebido: Nome - ${nome}, Email - ${email}`);
+    res.send(`Formulário recebido: Nome - ${name}, Email - ${email}`);
 });
 
 // Aula 10: Mensagem de Confirmação

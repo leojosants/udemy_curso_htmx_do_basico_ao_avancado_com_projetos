@@ -142,12 +142,23 @@
 		<button
 			hx-get="http://localhost:3000/progress"
 			hx-target="#result-progress"
-			hx-indicator="#loading-indicator">
+			hx-indicator="#loading-indicator"
+		>
 			Iniciar requisição
 		</button>
 
 		<div id="result-progress"></div>
 
 		<div id="loading-indicator">Carregando...</div>
+
+		<h2>Aula 8</h2>
+
+		<form hx-post="http://localhost:3000/submit" hx-target="#result-form">
+			<input type="text" name="name" placeholder="Digite o nome" />
+			<input type="email" name="email" placeholder="Digite o e-mail" />
+			<button type="submit">Enviar</button>
+		</form>
+
+		<div id="result-form"></div>
 	</body>
 </html>
