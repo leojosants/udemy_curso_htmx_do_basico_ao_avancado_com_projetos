@@ -54,13 +54,39 @@ app.post('/todos', async (req, res) => {
                 Tarefa '${newTask.text}' criada com sucesso!
             </div>
         `);
-    } catch (error) {
+    }
+    catch (error) {
         res.send(`
             <div class="alert alert-danger" role="alert">
                 Erro ao criar tarefa!
             </div>
         `);
+    }
+});
 
+// resgatar tarefas
+app.get('/todos', async (req, res) => {
+    try {
+        const tasks = await Todo.findAll();
+
+        if (tasks.length === 0) {
+            res.send(`
+                <p>Não há tarefas cadastradas!</p>
+            `);
+            return;
+        }
+
+        // tarefas resgatadas
+        let html = tasks.map((task) => `<p>${task.text}</p>`).join('');
+
+        res.send(html);
+    }
+    catch (error) {
+        res.send(`
+            <div class="alert alert-danger" role="alert">
+                Erro ao criar tarefa!
+            </div>
+        `);
     }
 });
 
