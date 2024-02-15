@@ -10,11 +10,14 @@
 			integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
 			crossorigin="anonymous"
 		></script>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 		<h1>Aula 1</h1>
 
-		<button hx-post="http://localhost:3000/post" hx-target="#result">
+		<button 
+			hx-post="http://localhost:3000/post" 
+			hx-target="#result">
 			Enviar POST
 		</button>
 
@@ -22,7 +25,9 @@
 
 		<h2>Aula 2</h2>
 
-		<button hx-put="http://localhost:3000/put" hx-target="#result-put">
+		<button 
+			hx-put="http://localhost:3000/put" 
+			hx-target="#result-put">
 			Enviar PUT
 		</button>
 
@@ -30,8 +35,7 @@
 
 		<button
 			hx-delete="http://localhost:3000/delete"
-			hx-target="#result-delete"
-		>
+			hx-target="#result-delete">
 			Enviar DELETE
 		</button>
 
@@ -47,5 +51,37 @@
 		/>
 
 		<div id="result-trigger"></div>
+
+		<h2>Aula 4</h2>
+
+		<button 
+			hx-get="http://localhost:3000/once" 
+			hx-target="#result-once"
+			hx-trigger="click once">
+			Clique uma vez
+		</button>
+
+		<div id="result-once"></div>
+		
+		<button 
+			hx-get="http://localhost:3000/delay" 
+			hx-target="#result-delay"
+			hx-trigger="click delay:2000ms">
+			Delay de 2s
+		</button>
+
+		<div id="result-delay"></div>
+
+		<button id="external-trigger">Clique para acionar</button>
+
+		<button
+			id="trigger-button"
+			hx-get="http://localhost:3000/external" 
+			hx-target="#result-external"
+			hx-trigger="click from:#external-trigger">
+			Botão oculto
+		</button>
+
+		<div id="result-external"></div>
 	</body>
 </html>
