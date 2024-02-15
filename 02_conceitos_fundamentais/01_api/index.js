@@ -99,8 +99,7 @@ app.delete("/delete", (req, res) => {
 
 // Aula 11: Upload de Arquivos
 // Certifique-se de ter o middleware apropriado para o tratamento de upload de arquivos
-app.post("/upload", upload.single("arquivo"), (req, res) => {
-    console.log("aqui");
+app.post("/upload", upload.single("fileName"), (req, res) => {
     console.log(req.file); // Informações do arquivo carregado
     res.send("Arquivo recebido!");
 });

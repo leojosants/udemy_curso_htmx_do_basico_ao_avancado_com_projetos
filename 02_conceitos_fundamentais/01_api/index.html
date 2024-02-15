@@ -151,7 +151,7 @@
 
 		<div id="loading-indicator">Carregando...</div>
 
-		<h2>Aula 9/h2>
+		<h2>Aula 9</h2>
 
 		<form hx-post="http://localhost:3000/submit" hx-target="#result-form">
 			<input type="text" name="name" placeholder="Digite o nome" />
@@ -172,5 +172,18 @@
 		</button>
 
 		<div id="result-confirm"></div>
+
+		<h2>Aula 11</h2>
+
+		<form
+			hx-post="http://localhost:3000/upload"
+			hx-target="#result-upload"
+			enctype="multipart/form-data"
+		>
+			<input type="file" name="fileName" />
+			<button type="submit">Enviar</button>
+		</form>
+
+		<div id="result-upload"></div>
 	</body>
 </html>
