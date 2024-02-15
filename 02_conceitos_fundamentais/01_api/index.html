@@ -11,14 +11,12 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="script.js" defer></script>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
 		<h1>Aula 1</h1>
 
-		<button 
-			hx-post="http://localhost:3000/post" 
-			hx-target="#result">
+		<button hx-post="http://localhost:3000/post" hx-target="#result">
 			Enviar POST
 		</button>
 
@@ -26,9 +24,7 @@
 
 		<h2>Aula 2</h2>
 
-		<button 
-			hx-put="http://localhost:3000/put" 
-			hx-target="#result-put">
+		<button hx-put="http://localhost:3000/put" hx-target="#result-put">
 			Enviar PUT
 		</button>
 
@@ -36,7 +32,8 @@
 
 		<button
 			hx-delete="http://localhost:3000/delete"
-			hx-target="#result-delete">
+			hx-target="#result-delete"
+		>
 			Enviar DELETE
 		</button>
 
@@ -55,19 +52,21 @@
 
 		<h2>Aula 4</h2>
 
-		<button 
-			hx-get="http://localhost:3000/once" 
+		<button
+			hx-get="http://localhost:3000/once"
 			hx-target="#result-once"
-			hx-trigger="click once">
+			hx-trigger="click once"
+		>
 			Clique uma vez
 		</button>
 
 		<div id="result-once"></div>
-		
-		<button 
-			hx-get="http://localhost:3000/delay" 
+
+		<button
+			hx-get="http://localhost:3000/delay"
 			hx-target="#result-delay"
-			hx-trigger="click delay:2000ms">
+			hx-trigger="click delay:2000ms"
+		>
 			Delay de 2s
 		</button>
 
@@ -77,9 +76,10 @@
 
 		<button
 			id="trigger-button"
-			hx-get="http://localhost:3000/external" 
+			hx-get="http://localhost:3000/external"
 			hx-target="#result-external"
-			hx-trigger="click from:#external-trigger">
+			hx-trigger="click from:#external-trigger"
+		>
 			Botão oculto
 		</button>
 
@@ -87,19 +87,21 @@
 
 		<h2>Aula 5</h2>
 
-		<button 
-			hx-get="http://localhost:3000/control-click" 
+		<button
+			hx-get="http://localhost:3000/control-click"
 			hx-target="#result-control-click"
-			hx-trigger="click[ctrlKey] once">
+			hx-trigger="click[ctrlKey] once"
+		>
 			Control click
 		</button>
 
 		<div id="result-control-click"></div>
-		
-		<button 
-			hx-get="http://localhost:3000/global-condition" 
+
+		<button
+			hx-get="http://localhost:3000/global-condition"
 			hx-target="#result-global-condition"
-			hx-trigger="click[checkCondition()]">
+			hx-trigger="click[checkCondition()]"
+		>
 			Trigger com função JS
 		</button>
 
@@ -108,20 +110,31 @@
 		<h2>Aula 6</h2>
 
 		<div
-			hx-get="http://localhost:3000/load" 
+			hx-get="http://localhost:3000/load"
 			hx-target="#result-load"
-			hx-trigger="load">
-		</div>
+			hx-trigger="load"
+		></div>
 
 		<div id="result-load"></div>
-		
-		<div
-			hx-get="http://localhost:3000/revealed" 
+
+		<!-- <div
+			hx-get="http://localhost:3000/revealed"
 			hx-target="#result-revealed"
 			hx-trigger="revealed"
-			id="div-revealed">
-		</div>
+			id="div-revealed"
+		></div>
 
-		<div id="result-revealed"></div>
+		<div id="result-revealed"></div> -->
+
+		<h2>Aula 7</h2>
+
+		<!-- <div
+			hx-get="http://localhost:3000/polling"
+			hx-target="#result-polling"
+			hx-trigger="every 5s"
+			id="div-polling"
+		></div>
+
+		<div id="result-polling"></div> -->
 	</body>
 </html>
