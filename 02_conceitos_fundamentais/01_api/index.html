@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,28 @@
 	</head>
 	<body>
 		<h1>Aula 1</h1>
+
 		<button hx-post="http://localhost:3000/post" hx-target="#result">
-			Enviar post
+			Enviar POST
 		</button>
+
 		<div id="result"></div>
+
+		<h1>Aula 2</h1>
+
+		<button hx-put="http://localhost:3000/put" hx-target="#result-put">
+			Enviar PUT
+		</button>
+
+		<div id="result-put"></div>
+
+		<button
+			hx-delete="http://localhost:3000/delete"
+			hx-target="#result-delete"
+		>
+			Enviar DELETE
+		</button>
+
+		<div id="result-delete"></div>
 	</body>
 </html>
