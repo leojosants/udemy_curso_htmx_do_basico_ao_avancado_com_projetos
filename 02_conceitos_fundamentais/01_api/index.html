@@ -185,5 +185,27 @@
 		</form>
 
 		<div id="result-upload"></div>
+
+		<h2>Aula 12</h2>
+
+		<button
+			id="get-request"
+			hx-get="http://localhost:3000/getData"
+			hx-target="#result-get"
+		>
+			Requisição GET (com delay)
+		</button>
+
+		<button
+			hx-post="http://localhost:3000/postData"
+			hx-target="#result-post"
+			hx-sync="#get-request:Queue"
+		>
+			Requisição POST
+		</button>
+
+		<div id="result-get"></div>
+
+		<div id="result-post"></div>
 	</body>
 </html>
