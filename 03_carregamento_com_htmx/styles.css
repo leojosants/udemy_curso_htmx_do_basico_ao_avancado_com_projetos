@@ -1,3 +1,8 @@
 #swap-area {
     border: 1px solid red;
 }
+
+#notification {
+    border: 1px solid black;
+    pad: 10px;
+}

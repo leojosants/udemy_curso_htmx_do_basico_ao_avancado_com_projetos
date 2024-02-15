@@ -74,5 +74,16 @@
 				After end
 			</button>
 		</div>
+
+		<button
+			hx-get="http://localhost:3000/outOfBound"
+			hx-target="#ignored-target"
+		>
+			Enviar requisição
+		</button>
+
+		<div id="notification">Notificação inicial</div>
+
+		<div id="ignored-target"></div>
 	</body>
 </html>
