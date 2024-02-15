@@ -36,6 +36,7 @@ app.delete("/delete", (req, res) => {
 
 // Aula 3: Gatilho de Requisição (hx-trigger)
 app.get("/trigger", (req, res) => {
+    console.log(req);
     res.send("Resposta do gatilho de requisição.");
 });
 

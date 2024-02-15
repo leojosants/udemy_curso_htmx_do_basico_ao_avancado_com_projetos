@@ -20,7 +20,7 @@
 
 		<div id="result"></div>
 
-		<h1>Aula 2</h1>
+		<h2>Aula 2</h2>
 
 		<button hx-put="http://localhost:3000/put" hx-target="#result-put">
 			Enviar PUT
@@ -36,5 +36,16 @@
 		</button>
 
 		<div id="result-delete"></div>
+
+		<h2>Aula 3</h2>
+
+		<input
+			type="text="
+			hx-get="http://localhost:3000/trigger"
+			hx-target="#result-trigger"
+			hx-trigger="keyup"
+		/>
+
+		<div id="result-trigger"></div>
 	</body>
 </html>
