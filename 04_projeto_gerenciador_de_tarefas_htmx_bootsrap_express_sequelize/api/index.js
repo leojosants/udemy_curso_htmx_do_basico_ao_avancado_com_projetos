@@ -27,6 +27,43 @@ const Todo = sequelize.define('Todo',
     }
 );
 
+// rota para criacao de tarefa
+app.post('/todos', async (req, res) => {
+    const { text, difficulty } = req.body;
+
+    if (!text || !difficulty) {
+        res.send(`
+            <div class="alert alert-danger" role="alert">
+                Tarefa e dificuldade são obrigatórios!
+            </div>
+        `);
+        return;
+    }
+
+    try {
+        const newTask = await Todo.create(
+            {
+                text,
+                difficulty,
+                complete: false,
+            }
+        );
+
+        res.send(`
+            <div class="alert alert-success" role="alert">
+                Tarefa '${newTask.text}' criada com sucesso!
+            </div>
+        `);
+    } catch (error) {
+        res.send(`
+            <div class="alert alert-danger" role="alert">
+                Erro ao criar tarefa!
+            </div>
+        `);
+
+    }
+});
+
 sequelize.sync().then(() => {
     app.listen(port, () => {
         console.log(`Servidor sendo executado na porta: ${port}`);
