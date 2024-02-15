@@ -136,5 +136,18 @@
 		></div>
 
 		<div id="result-polling"></div> -->
+
+		<h2>Aula 8</h2>
+
+		<button
+			hx-get="http://localhost:3000/progress"
+			hx-target="#result-progress"
+			hx-indicator="#loading-indicator">
+			Iniciar requisição
+		</button>
+
+		<div id="result-progress"></div>
+
+		<div id="loading-indicator">Carregando...</div>
 	</body>
 </html>
