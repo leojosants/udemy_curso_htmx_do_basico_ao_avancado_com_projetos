@@ -11,6 +11,7 @@
 			crossorigin="anonymous"
 		></script>
 		<link rel="stylesheet" href="styles.css" />
+		<script src="scripts.js" defer></script>
 	</head>
 	<body>
 		<h1>Aula 01</h1>
@@ -112,5 +113,23 @@
 		</button>
 
 		<div id="result-params"></div>
+
+		<h2>Aula 07</h2>
+
+		<button hx-get="http://localhost:3000/userData" hx-target="#user-data">
+			Enviar requisição
+		</button>
+
+		<div id="user-data"></div>
+
+		<button
+			id="load-user-data"
+			hx-get="http://localhost:3000/userData"
+			hx-target="#user-data-2"
+		>
+			Enviar requisição
+		</button>
+
+		<div id="user-data-2"></div>
 	</body>
 </html>
