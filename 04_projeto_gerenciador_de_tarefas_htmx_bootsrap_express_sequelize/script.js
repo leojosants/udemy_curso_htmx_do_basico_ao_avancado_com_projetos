@@ -25,8 +25,25 @@ function deleteTask(id) {
     }
 }
 
-// atualizar statatus da tarefa
+// atualizar status da tarefa
 function toggleTask(id) {
     htmx.ajax('PATCH', 'http://localhost:3000/todos/' + id, '#msg');
     updateTaskList();
+}
+
+// iniciar edicao de tarefa
+function editTask(id, text, difficulty) {
+    document.querySelector('#edit-id').value = id;
+    document.querySelector('#edit-text').value = text;
+    document.querySelector('#edit-difficulty').value = difficulty;
+    document.querySelector('#edit-form').classList.remove('d-none');
+    document.querySelector('#todo-form').classList.add('d-none');
+    document.querySelector('#todo-list').classList.add('d-none');
+}
+
+// cancelar edicao
+function cancelEdit() {
+    document.querySelector('#edit-form').classList.add('d-none');
+    document.querySelector('#todo-form').classList.remove('d-none');
+    document.querySelector('#todo-list').classList.remove('d-none');
 }

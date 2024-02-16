@@ -57,10 +57,52 @@
 						</button>
 					</form>
 
+					<!-- formulario de edicao -->
+					<form
+						class="mb-4 d-none"
+						id="edit-form"
+						hx-put="http://localhost:3000/todos"
+						hx-target="#msg"
+					>
+						<input type="hidden" name="id" id="edit-id" />
+
+						<div class="form-group">
+							<input
+								type="text"
+								class="form-control"
+								name="text"
+								placeholder="Digite a tarefa"
+								id="edit-text"
+							/>
+						</div>
+
+						<div class="form-group">
+							<select
+								class="form-control"
+								name="difficulty"
+								id="edit-difficulty"
+							>
+								<option value="Fácil">Fácil</option>
+								<option value="Intermediária">Intermediária</option>
+								<option value="Difícil">Difícil</option>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-success">
+							Salvar alterações
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-secondary"
+							onclick="cancelEdit()"
+						>
+							Cancelar
+						</button>
+					</form>
+
 					<!-- mensagens do sistema -->
 					<div id="msg"></div>
-
-					<!-- formulario de edicao -->
 
 					<!-- lista de tarefas -->
 					<div
