@@ -14,10 +14,15 @@
 // });
 
 // aula 03
-document.body.addEventListener('htmx:beforeRequest', function (event) {
-    console.log('Antes do Request!');
-});
+// document.body.addEventListener('htmx:beforeRequest', function (event) {
+//     console.log('Antes do Request!');
+// });
 
-document.body.addEventListener('htmx:afterRequest', function (event) {
-    console.log('Depois do Request!');
+// document.body.addEventListener('htmx:afterRequest', function (event) {
+//     console.log('Depois do Request!');
+// });
+
+// aula 04
+document.body.addEventListener('htmx:responseError', function (event) {
+    alert('Ocorreu um erro interno, tente mais tarde!');
 });
