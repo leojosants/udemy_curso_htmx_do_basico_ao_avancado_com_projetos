@@ -23,6 +23,13 @@
 // });
 
 // aula 04
-document.body.addEventListener('htmx:responseError', function (event) {
-    alert('Ocorreu um erro interno, tente mais tarde!');
+// document.body.addEventListener('htmx:responseError', function (event) {
+//     alert('Ocorreu um erro interno, tente mais tarde!');
+// });
+
+// aula 05
+document.body.addEventListener('htmx:configRequest', function (event) {
+    event.detail.headers['new_token'] = 'dkgorivn975h38';
+    event.detail.parameters['param1'] = 'valor do param 1';
+    event.detail.parameters['param2'] = 'valor do param 2';
 });
