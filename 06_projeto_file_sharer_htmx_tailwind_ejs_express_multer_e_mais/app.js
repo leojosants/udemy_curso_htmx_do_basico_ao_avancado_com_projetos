@@ -16,6 +16,15 @@ app.use(express.urlencoded({ extended: true })); // extrair resposta do formulá
 // caminho para arquivos
 
 // rotas
+app.get('/', (req, res) => {
+    // layout, template
+    res.render('layout',
+        {
+            title: 'Home',
+            template: 'index',
+        }
+    );
+});
 
 app.listen(port, () => {
     console.log(`Servidor inicializado na porta ${port}`);
