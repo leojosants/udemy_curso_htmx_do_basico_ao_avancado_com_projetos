@@ -35,8 +35,8 @@
 // });
 
 // aula 06
-htmx.logger = function (event, element, data) {
-    console.log(event);
-    console.log(element);
-    console.log(data);
-}
+// htmx.logger = function (event, element, data) {
+//     console.log(event);
+//     console.log(element);
+//     console.log(data);
+// }
