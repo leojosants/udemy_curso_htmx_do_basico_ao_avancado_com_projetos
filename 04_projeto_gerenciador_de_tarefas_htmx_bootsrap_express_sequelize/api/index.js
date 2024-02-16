@@ -140,6 +140,30 @@ app.delete('/todos/:id', async (req, res) => {
     }
 });
 
+app.patch('/todos/:id', async (req, res) => {
+    try {
+        const task = await Todo.findByPk(req.params.id);
+
+        if (task) {
+            task.complete = !task.complete;
+
+            await task.save();
+
+            res.send(`
+                <div class="alert alert-success" role="alert">
+                    A tarefa '${task.text}' foi marcada como ${task.complete ? 'completa' : 'incompleta'}
+                </div>
+            `);
+        }
+        else {
+            res.send('Tarefa não encontrada!');
+        }
+    }
+    catch (error) {
+        res.send('Erro ao editar tarefa!');
+    }
+});
+
 sequelize.sync().then(() => {
     app.listen(port, () => {
         console.log(`Servidor sendo executado na porta: ${port}`);
