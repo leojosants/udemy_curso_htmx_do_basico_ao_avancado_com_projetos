@@ -1,5 +1,10 @@
 document.body.addEventListener('htmx:afterRequest',
     function (event) {
+        if (event.target.getAttribute('id') === 'edit-form') {
+            cancelEdit();
+            updateTaskList();
+        }
+
         if (event.target.getAttribute('id') === 'todo-form') {
             resetForm();
             updateTaskList();
@@ -38,12 +43,10 @@ function editTask(id, text, difficulty) {
     document.querySelector('#edit-difficulty').value = difficulty;
     document.querySelector('#edit-form').classList.remove('d-none');
     document.querySelector('#todo-form').classList.add('d-none');
-    document.querySelector('#todo-list').classList.add('d-none');
 }
 
 // cancelar edicao
 function cancelEdit() {
     document.querySelector('#edit-form').classList.add('d-none');
     document.querySelector('#todo-form').classList.remove('d-none');
-    document.querySelector('#todo-list').classList.remove('d-none');
 }
