@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: true })); // extrair resposta do formulá
 // caminho para arquivos
 
 // rotas
+const authRoutes = require('./routes/auth');
+
 app.get('/', (req, res) => {
     // layout, template
     res.render('layout',
@@ -25,6 +27,8 @@ app.get('/', (req, res) => {
         }
     );
 });
+
+app.use('/auth', authRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor inicializado na porta ${port}`);
