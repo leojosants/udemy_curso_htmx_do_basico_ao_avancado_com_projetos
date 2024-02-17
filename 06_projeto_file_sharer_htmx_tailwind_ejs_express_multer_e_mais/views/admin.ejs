@@ -2,7 +2,9 @@
 	<h2 class="text-2xl font-bold mb-4 text-center">Página de adminstração</h2>
 	<form
 		hx-post="http://localhost:3000/admin/upload"
-		hx-target="#msg"
+		hx-target-error="#msg"
+		hx-target="#file-list"
+		enctype="multipart/form-data"
 		class="max-w-sm mx-auto"
 	>
 		<div class="mb-4">
