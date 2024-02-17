@@ -3,5 +3,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    puglins: [],
+    plugins: [],
 };

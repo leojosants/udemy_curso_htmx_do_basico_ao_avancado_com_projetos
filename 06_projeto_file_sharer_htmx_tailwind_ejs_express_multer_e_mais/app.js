@@ -5,6 +5,12 @@ const app = express();
 const port = 3000;
 
 // gerenciamento da seção
+app.use(session({
+    store: new SQLiteStore,
+    secret: 'segredo',
+    resave: false,
+    saveUninitialized: false,
+}));
 
 // configuracao EJS
 app.set('view engine', 'ejs');
@@ -20,11 +26,7 @@ const authRoutes = require('./routes/auth');
 
 app.get('/', (req, res) => {
     // layout, template
-    res.render('layout',
-        {
-            title: 'Home',
-            template: 'index',
-        }
+    res.render('layout', { title: 'Home', template: 'index', }
     );
 });
 

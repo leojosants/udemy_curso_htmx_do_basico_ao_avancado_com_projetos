@@ -1,9 +1,7 @@
 'use strict';
-
 const {
   Model
 } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
   class File extends Model {
     /**
@@ -12,32 +10,23 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      File.belongsTo(models.User,
-        {
-          foreignKey: 'userId',
-        }
-      );
+      File.belongsTo(models.User, { foreignKey: 'userId' });
     }
   }
-  
-  File.init(
-    {
-      nome: DataTypes.STRING,
-      descricao: DataTypes.TEXT,
-      caminho: DataTypes.STRING,
-      userId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-        }
+  File.init({
+    nome: DataTypes.STRING,
+    descricao: DataTypes.TEXT,
+    caminho: DataTypes.STRING,
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'users',
+        key: 'id',
       },
     },
-    {
-      sequelize,
-      modelName: 'File',
-    }
-  );
-
+  }, {
+    sequelize,
+    modelName: 'File',
+  });
   return File;
 };
