@@ -14,4 +14,9 @@ document.body.addEventListener('htmx:afterRequest', function (event) {
     if (redirect) {
         window.location.href = redirect;
     }
+
+    // limpar form
+    if (event.target.getAttribute('id') === 'file-form') {
+        event.target.reset();
+    }
 });

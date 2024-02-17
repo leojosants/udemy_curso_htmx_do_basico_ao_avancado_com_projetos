@@ -54,4 +54,27 @@ router.get('/fetch-files', isAuthenticated, async (req, res) => {
     res.render('partials/userFiles', { files: userFiles });
 });
 
+router.delete('/delete-file/:fileId', isAuthenticated, async (req, res) => {
+    try {
+        const fileId = req.params.fileId;
+        const file = await File.findByPk(fileId);
+
+        if (!file) {
+            return res.status(404).send('Arquivo não existe!');
+        }
+
+        await file.destroy();
+
+        const userFiles = await File.findAll({
+            where: { userId: req.session.userId, }
+        });
+
+        // buscar e enviar lista de arquivos
+        res.render('partials/userFiles', { files: userFiles });
+    }
+    catch (error) {
+
+    }
+});
+
 module.exports = router;
