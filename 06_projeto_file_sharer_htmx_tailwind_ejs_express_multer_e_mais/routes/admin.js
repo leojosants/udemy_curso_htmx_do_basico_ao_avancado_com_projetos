@@ -1,6 +1,8 @@
 
 const express = require('express');
 const upload = require('../config/multerConfig');
+const path = require('path');
+const fs = require('fs');
 const { User } = require('../models');
 const { File } = require('../models');
 const isAuthenticated = require('../middleware/isAuthenticated');
@@ -63,6 +65,13 @@ router.delete('/delete-file/:fileId', isAuthenticated, async (req, res) => {
             return res.status(404).send('Arquivo não existe!');
         }
 
+        // excluir arquivo
+        const filePath = path.join(__dirname, '..', file.caminho);
+
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
         await file.destroy();
 
         const userFiles = await File.findAll({
@@ -73,7 +82,7 @@ router.delete('/delete-file/:fileId', isAuthenticated, async (req, res) => {
         res.render('partials/userFiles', { files: userFiles });
     }
     catch (error) {
-
+        res.status(500).send("Erro ao excluir o arquivo!");
     }
 });
 
