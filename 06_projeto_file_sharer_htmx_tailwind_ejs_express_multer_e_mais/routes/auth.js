@@ -28,4 +28,31 @@ router.post('/register', async (req, res) => {
     }
 });
 
+router.post('/login', async (req, res) => {
+    const { senha, email } = req.body;
+
+    try {
+        const user = await User.findOne({ where: { email } });
+
+        if (user && (await bcrypt.compare(senha, user.senha))) {
+            req.session.userId = user.id;
+            res.setHeader('HX-Redirect', '/admin');
+            res.send('Usuário logado!');
+        }
+        else {
+            res.send('Falha no login: credenciais inválidas!');
+        }
+    }
+    catch (error) {
+        res.send('Erro ao autenticar usuário!');
+    }
+});
+
+router.get('/logout', async (req, res) => {
+    req.session.destroy(() => {
+        res.setHeader('HX-Redirect', '/');
+        res.send('Logout efetuado!');
+    });
+});
+
 module.exports = router;
