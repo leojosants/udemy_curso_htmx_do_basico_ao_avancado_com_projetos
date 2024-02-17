@@ -34,13 +34,24 @@ router.post('/upload', isAuthenticated, upload.single('arquivo'), async (req, re
     try {
         await File.create({ nome, descricao, caminho, userId });
 
+        const userFiles = await File.findAll({
+            where: { userId: req.session.userId, }
+        });
+
         // buscar e enviar lista de arquivos
-        res.send('Deu certo!');
+        res.render('partials/userFiles', { files: userFiles });
 
     }
     catch (error) {
         res.send('Erro ao criar arquivo!');
     }
+});
+
+router.get('/fetch-files', isAuthenticated, async (req, res) => {
+    const userFiles = await File.findAll({
+        where: { userId: req.session.userId, }
+    });
+    res.render('partials/userFiles', { files: userFiles });
 });
 
 module.exports = router;
