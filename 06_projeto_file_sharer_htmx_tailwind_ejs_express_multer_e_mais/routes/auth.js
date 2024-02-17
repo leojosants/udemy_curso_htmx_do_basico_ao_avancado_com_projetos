@@ -15,6 +15,12 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     const { nome, senha, email } = req.body;
+
+    if (!nome || !email || !senha) {
+        res.send('Prencha todos os dados!');
+        return;
+    }
+
     const hashSenha = await bcrypt.hash(senha, 10);
 
     try {
@@ -37,7 +43,7 @@ router.post('/login', async (req, res) => {
         if (user && (await bcrypt.compare(senha, user.senha))) {
             req.session.userId = user.id;
             res.setHeader('HX-Redirect', '/admin');
-            res.send('Usuário logado!');
+            res.send('Login efetuado!');
         }
         else {
             res.send('Falha no login: credenciais inválidas!');
@@ -48,7 +54,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/logout', async (req, res) => {
+router.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.setHeader('HX-Redirect', '/');
         res.send('Logout efetuado!');
